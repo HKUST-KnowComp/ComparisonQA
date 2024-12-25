@@ -3,7 +3,7 @@ import torch
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--model', type=str, default='tiiuae/falcon-7b-instruct')
+parser.add_argument('--model', type=str, default='meta-llama/Meta-Llama-3-8B-Instruct')
 parser.add_argument('--mode', type=str, default='few')  # or "zero"
 args = parser.parse_args()
 
