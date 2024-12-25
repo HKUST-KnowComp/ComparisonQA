@@ -16,7 +16,7 @@ We find that uncertainty effectively identifies such questions while maintaining
 
 ## An Overview of Our Benchmark
 
-<img src="./figure/data_example.png" alt="Data Example" style="width: 40%; height: auto;" />
+<img src="./figure/data_example.png" alt="Data Example" style="width: 30%; height: auto;" />
 
 ## An Overview of Our Pipeline
 
