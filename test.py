@@ -8,7 +8,19 @@ from tqdm import tqdm
 with open('comparisonqa_benchmark/comparisonqa_test.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
-mode = "few"  # or "zero"
+import argparse
+parser = argparse.ArgumentParser()
+# model_name = 'google/gemma-2-9b'
+# model_name = 'tiiuae/falcon-11B'
+# model_name = 'mistralai/Mistral-7B-v0.3'
+# model_name = 'mistralai/Mistral-7B-Instruct-v0.3'
+# model_name = 'meta-llama/Meta-Llama-3-8B-Instruct'
+# model_name = 'meta-llama/Llama-3.1-8B-Instruct'
+# model_name = 'meta-llama/Llama-3.2-3B-Instruct'
+parser.add_argument('--model_name', type=str, default='meta-llama/Meta-Llama-3-8B-Instruct')
+parser.add_argument('--mode', type=str, default='few')  # or "zero"
+args = parser.parse_args()
+
 
 # Check device status
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -20,17 +32,11 @@ if torch.cuda.is_available():
     os.environ["CUDA_VISIBLE_DEVICES"] = str(1)
     torch.cuda.set_device(1)
 
-model_name = 'google/gemma-2-9b'
-# model_name = 'tiiuae/falcon-11B'
-# model_name = 'mistralai/Mistral-7B-v0.3'
-# model_name = 'mistralai/Mistral-7B-Instruct-v0.3'
-# model_name = 'meta-llama/Meta-Llama-3-8B-Instruct'
-# model_name = 'meta-llama/Llama-3.1-8B-Instruct'
-# model_name = 'meta-llama/Llama-3.2-3B-Instruct'
 
-name = model_name.split('/')[-1].replace('.', '').replace('-', '_')
-tokenizer = transformers.AutoTokenizer.from_pretrained(model_name)
-model = transformers.AutoModelForCausalLM.from_pretrained(model_name)
+
+name = args.model_name.split('/')[-1].replace('.', '').replace('-', '_')
+tokenizer = transformers.AutoTokenizer.from_pretrained(args.model_name)
+model = transformers.AutoModelForCausalLM.from_pretrained(args.model_name)
 model.eval()
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
@@ -79,7 +85,7 @@ for line in tqdm(data):
     id = line["question_id"]
     for q in ["high_question", "low_question"]:
         question = line[q]["question"]
-        if mode == "few":
+        if args.mode == "few":
             input = few_prompt.format(question, line[q]["options"]["A"], line[q]["options"]["B"], line[q]["options"]["C"], line[q]["options"]["D"])
         else:
             input = zero_prompt.format(question, line[q]["options"]["A"], line[q]["options"]["B"], line[q]["options"]["C"], line[q]["options"]["D"])
@@ -94,12 +100,12 @@ for line in tqdm(data):
 
     print_count += 1
     if print_count % 1000 == 1:
-        with open(f'./experiments/longtailqa_test_output_{name}_{mode}.json', 'w', encoding='utf-8') as file:
+        with open(f'./experiments/longtailqa_test_output_{name}_{args.mode}.json', 'w', encoding='utf-8') as file:
             json.dump(new_data, file, ensure_ascii=False, indent=4)
-        with open(f'./experiments/longtailqa_test_output_{name}_{mode}_copy.json', 'w', encoding='utf-8') as file:
+        with open(f'./experiments/longtailqa_test_output_{name}_{args.mode}_copy.json', 'w', encoding='utf-8') as file:
             json.dump(new_data, file, ensure_ascii=False, indent=4)
 
-with open(f'./experiments/longtailqa_test_output_{name}_{mode}.json', 'w', encoding='utf-8') as file:
+with open(f'./experiments/longtailqa_test_output_{name}_{args.mode}.json', 'w', encoding='utf-8') as file:
     json.dump(new_data, file, ensure_ascii=False, indent=4)
-with open(f'./experiments/longtailqa_test_output_{name}_{mode}_copy.json', 'w', encoding='utf-8') as file:
+with open(f'./experiments/longtailqa_test_output_{name}_{args.mode}_copy.json', 'w', encoding='utf-8') as file:
     json.dump(new_data, file, ensure_ascii=False, indent=4)
