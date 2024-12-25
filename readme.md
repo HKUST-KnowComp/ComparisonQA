@@ -31,6 +31,8 @@ You can install all requirements with the command:
 The datasets used in the paper can be downloaded from the following links:
 [ComparisonQA](https://1drv.ms/f/s!AtpcjEhwVs54kiGFT22K8li_yYu6?e=3O9kdC)
 
+You can replace the data in the comparisonqa_benchmark folder with the downloaded data.
+
 ## Testing and Evaluation
 For open source models:
 
