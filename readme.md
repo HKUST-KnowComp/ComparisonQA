@@ -16,11 +16,11 @@ We find that uncertainty effectively identifies such questions while maintaining
 
 ## An Overview of Our Benchmark
 
-<img src="./figure/data_example.png" alt="Data Example" width="300" />
+<img src="./figure/data_example.png" alt="Data Example" style="width: 40%; height: auto;" />
 
 ## An Overview of Our Pipeline
 
-<img src="./figure/pipeline.png" alt="Data Example" width="600" />
+<img src="./figure/pipeline.png" alt="Data Example" style="width: 70%; height: auto;" />
 
 ## Requirements
 You can install all requirements with the command:
