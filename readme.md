@@ -16,7 +16,11 @@ We find that uncertainty effectively identifies such questions while maintaining
 
 ## An Overview of Our Benchmark
 
- ![](./method_figure.png)
+ ![](./figure/data_example.pdf)
+
+## An Overview of Our Pipeline
+
+ ![](./figure/pipeline.pdf)
 
 ## Requirements
 You can install all requirements with the command:
