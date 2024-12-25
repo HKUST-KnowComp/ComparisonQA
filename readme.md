@@ -16,7 +16,7 @@ We find that uncertainty effectively identifies such questions while maintaining
 
 ## An Overview of Our Benchmark
 
- ![](./figure/data_example.png)
+<img src="./figure/data_example.png" alt="Data Example" width="300" />
 
 ## An Overview of Our Pipeline
 
