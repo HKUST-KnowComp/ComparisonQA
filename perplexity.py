@@ -4,7 +4,7 @@ import torch
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--model', type=str, default='meta-llama/Meta-Llama-3-8B-Instruct')
-parser.add_argument('--mode', type=str, default='few')  # or "zero"
+parser.add_argument('--mode', type=str, default='zero')  # or "few"
 args = parser.parse_args()
 
 name = args.model_name.split('/')[-1].replace('.', '').replace('-', '_')
@@ -48,10 +48,10 @@ for line in tqdm(data):
         score = []
         for o in ["A", "B", "C", "D"]:
             answer = line[q]["options"][o]
-            if args.mode == "few":
-                input_text = few_prompt.format(question, answer)
-            else:
+            if args.mode == "zero":
                 input_text = zero_prompt.format(question, answer)
+            else:
+                input_text = few_prompt.format(question, answer)
             ppl = scorer.get_perplexity(input_text)
             score.append(ppl)
         line[q]["perplexity_gen"] = score

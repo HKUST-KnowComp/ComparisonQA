@@ -18,7 +18,7 @@ parser = argparse.ArgumentParser()
 # model_name = 'meta-llama/Llama-3.1-8B-Instruct'
 # model_name = 'meta-llama/Llama-3.2-3B-Instruct'
 parser.add_argument('--model_name', type=str, default='meta-llama/Meta-Llama-3-8B-Instruct')
-parser.add_argument('--mode', type=str, default='few')  # or "zero"
+parser.add_argument('--mode', type=str, default='zero')  # or "few"
 args = parser.parse_args()
 
 
@@ -85,10 +85,10 @@ for line in tqdm(data):
     id = line["question_id"]
     for q in ["high_question", "low_question"]:
         question = line[q]["question"]
-        if args.mode == "few":
-            input = few_prompt.format(question, line[q]["options"]["A"], line[q]["options"]["B"], line[q]["options"]["C"], line[q]["options"]["D"])
-        else:
+        if args.mode == "zero":
             input = zero_prompt.format(question, line[q]["options"]["A"], line[q]["options"]["B"], line[q]["options"]["C"], line[q]["options"]["D"])
+        else:
+            input = few_prompt.format(question, line[q]["options"]["A"], line[q]["options"]["B"], line[q]["options"]["C"], line[q]["options"]["D"])
         generated = generate_text(input)
 
         input_length = len(input)
