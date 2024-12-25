@@ -3,7 +3,6 @@ import json
 import re
 from tqdm import tqdm
 
-
 with open('../comparisonqa_benchmark/comparisonqa_test.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 

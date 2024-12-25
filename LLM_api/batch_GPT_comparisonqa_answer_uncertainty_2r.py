@@ -2,6 +2,7 @@ import json
 import re
 from tqdm import tqdm
 
+
 with open('./longtailqa_answer_test_uncertainty_4omini_fewshot_total_output.json', 'r', encoding='utf-8') as f:
     predict_all = json.load(f)
     print(len(predict_all))
