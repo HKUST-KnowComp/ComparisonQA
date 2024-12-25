@@ -20,7 +20,7 @@ We find that uncertainty effectively identifies such questions while maintaining
 
 ## An Overview of Our Pipeline
 
-<img src="./figure/pipeline.png" alt="Data Example" width="500" />
+<img src="./figure/pipeline.png" alt="Data Example" width="600" />
 
 ## Requirements
 You can install all requirements with the command:
