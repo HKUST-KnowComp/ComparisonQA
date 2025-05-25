@@ -1,0 +1,66 @@
+[
+    {
+        "question_id": "Character_159251",
+        "hypernym": "Character",
+        "high_entity": "http://dbpedia.org/resource/Quark_(Star_Trek)",
+        "high_relationshipCount": "193",
+        "low_entity": "http://dbpedia.org/resource/Yan_Shun",
+        "low_relationshipCount": "98",
+        "high_question": {
+            "question": "What is the primary motivation or characteristic of Quark (Star Trek)?",
+            "options": {
+                "A": "Altruistic heroism",
+                "B": "Bravery and loyalty to his comrades",
+                "C": "Greed and treachery",
+                "D": "Profit-driven capitalism"
+            },
+            "answer": {
+                "D": "Profit-driven capitalism"
+            }
+        },
+        "low_question": {
+            "question": "What is the primary motivation or characteristic of Yan Shun?",
+            "options": {
+                "A": "Altruistic heroism",
+                "B": "Bravery and loyalty to his comrades",
+                "C": "Greed and treachery",
+                "D": "Profit-driven capitalism"
+            },
+            "answer": {
+                "B": "Bravery and loyalty to his comrades"
+            }
+        }
+    },
+    {
+        "question_id": "Part_79761",
+        "hypernym": "Part",
+        "high_entity": "http://dbpedia.org/resource/Battle_of_Bita_Paka",
+        "high_relationshipCount": "278",
+        "low_entity": "http://dbpedia.org/resource/Kępa_Barnicka",
+        "low_relationshipCount": "38",
+        "high_question": {
+            "question": "What geographical significance does Battle of Bita Paka hold?",
+            "options": {
+                "A": "It is a notable part of Szczecin City, Poland",
+                "B": "It was once a military fortification",
+                "C": "It is known for its historical trade routes",
+                "D": "It was the site of an important military engagement during WWI"
+            },
+            "answer": {
+                "D": "It was the site of an important military engagement during WWI"
+            }
+        },
+        "low_question": {
+            "question": "What geographical significance does Kępa Barnicka hold?",
+            "options": {
+                "A": "It is a notable part of Szczecin City, Poland",
+                "B": "It was once a military fortification",
+                "C": "It is known for its historical trade routes",
+                "D": "It was the site of an important military engagement during WWI"
+            },
+            "answer": {
+                "A": "It is a notable part of Szczecin City, Poland"
+            }
+        }
+    }
+]
